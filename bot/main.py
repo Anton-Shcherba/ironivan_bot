@@ -11,7 +11,9 @@ async def process_start_command(message: types.Message):
     markup.add(
         types.KeyboardButton(
             "web",
-            web_app=types.WebAppInfo(url="https://13ec-93-125-107-78.ngrok-free.app/"),
+            web_app=types.WebAppInfo(
+                url="https://anton-shcherba.github.io/ironivan_bot/"
+            ),
         )
     )
     await message.answer("start cmd", reply_markup=markup)
