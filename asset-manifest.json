@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/ironivan_bot/static/css/main.7736e176.css",
-    "main.js": "/ironivan_bot/static/js/main.19e89e55.js",
+    "main.js": "/ironivan_bot/static/js/main.857febaa.js",
     "static/js/787.dfa3fe91.chunk.js": "/ironivan_bot/static/js/787.dfa3fe91.chunk.js",
     "index.html": "/ironivan_bot/index.html",
     "main.7736e176.css.map": "/ironivan_bot/static/css/main.7736e176.css.map",
-    "main.19e89e55.js.map": "/ironivan_bot/static/js/main.19e89e55.js.map",
+    "main.857febaa.js.map": "/ironivan_bot/static/js/main.857febaa.js.map",
     "787.dfa3fe91.chunk.js.map": "/ironivan_bot/static/js/787.dfa3fe91.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.7736e176.css",
-    "static/js/main.19e89e55.js"
+    "static/js/main.857febaa.js"
   ]
 }
