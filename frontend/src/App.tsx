@@ -6,12 +6,21 @@ const socket = io('ws://localhost:5678');
 
 function App(): JSX.Element {
   // const { user } = window.Telegram.WebApp.initDataUnsafe
+  const [connection, setConnection] = useState<boolean>(false);
   const [messages, setMessages] = useState<any[]>([]);
 
   useEffect(() => {
     socket.on('message', (data) => {
       console.log(data)
       setMessages((prevMessages) => [...prevMessages, data]);
+    });
+
+    socket.on("connect", () => {
+      setConnection(true)
+    });
+
+    socket.on("disconnect", () => {
+      setConnection(false)
     });
   }, []);
 
@@ -28,6 +37,7 @@ function App(): JSX.Element {
   return (
     <div className="App">
       {/* <p>{user?.id ? user.id : 'bad_id'}</p> */}
+      <p>{connection ? 'connected' : 'not connected'}</p>
       <ul>
         {messages.map((message, index) => (
           <li key={index}>{message}</li>
