@@ -9,16 +9,25 @@ USERS = {}
 
 @sio.event
 def connect(sid, environ):
-    USERS[sid] = {"status": "searching", "game": None}
+    if USERS.get(sid) is None:
+        USERS[sid] = {"status": "searching", "game": None}
+        sio.emit("data", {"status": "searching", "game": None}, to=sid)
+    else:
+        sio.emit("data", USERS[sid], to=sid)
+
     print("add user", sid)
     sio.emit("message", f"user {sid} connected")
 
 
 @sio.event
 def disconnect(sid):
-    del USERS[sid]
-    print("remove user", sid)
-    sio.emit("message", f"user {sid} disconnected")
+    if USERS[sid] == {"status": "searching", "game": None}:
+        del USERS[sid]
+        print("remove user", sid)
+        sio.emit("message", f"user {sid} disconnected")
+    else:
+        print("err connected", sid)
+        sio.emit("message", f"user {sid} err connected")
 
 
 @sio.event
